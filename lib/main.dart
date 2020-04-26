@@ -8,7 +8,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Hello to Flutter'),
-    );
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("Quize App"),
+        backgroundColor: Colors.pink[900],
+      ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
+        child: Column(
+          children: <Widget>[
+            Text("A question"),
+            RaisedButton(
+              onPressed: null,
+              child: Text('Answer-1'),
+            ),
+            RaisedButton(
+              onPressed: null,
+              child: Text('Answer-2'),
+            ),
+            RaisedButton(
+              onPressed: null,
+              child: Text('Answer-3'),
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
