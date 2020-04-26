@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizez_app/question.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,14 +11,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  var questions = [
-    'Question 1',
-    'Question 2',
-    'Question 3',
-  ];
+  var _questionIndex = 0;
+  void _btnAnswerQuestion() {
+    setState(() {
+      _questionIndex += 1;
+    });
+
+    print(_questionIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      'Question 1',
+      'Question 2',
+      'Question 3',
+    ];
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
@@ -29,23 +38,17 @@ class _MyAppState extends State<MyApp> {
         padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
         child: Column(
           children: <Widget>[
-            Text("A question"),
+            Question(questions[_questionIndex]),
             RaisedButton(
-              onPressed: () {
-                print("Answer 1");
-              },
+              onPressed: _btnAnswerQuestion,
               child: Text('Answer-1'),
             ),
             RaisedButton(
-              onPressed: () {
-                print("Answer 2");
-              },
+              onPressed: _btnAnswerQuestion,
               child: Text('Answer-2'),
             ),
             RaisedButton(
-              onPressed: () {
-                print("Answer 3");
-              },
+              onPressed: _btnAnswerQuestion,
               child: Text('Answer-3'),
             ),
           ],
