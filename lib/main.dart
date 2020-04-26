@@ -49,10 +49,11 @@ class _MyAppState extends State<MyApp> {
         padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
         child: Column(
           children: <Widget>[
-            Question(questions[_questionIndex]),
-            Answers(_btnAnswerQuestion),
-            Answers(_btnAnswerQuestion),
-            Answers(_btnAnswerQuestion),
+            Question(questions[_questionIndex]['question']),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answers(_btnAnswerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
