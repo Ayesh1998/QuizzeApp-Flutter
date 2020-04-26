@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizez_app/answers-buttons.dart';
 import 'package:quizez_app/question.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+
   void _btnAnswerQuestion() {
     setState(() {
       _questionIndex += 1;
@@ -39,18 +41,9 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           children: <Widget>[
             Question(questions[_questionIndex]),
-            RaisedButton(
-              onPressed: _btnAnswerQuestion,
-              child: Text('Answer-1'),
-            ),
-            RaisedButton(
-              onPressed: _btnAnswerQuestion,
-              child: Text('Answer-2'),
-            ),
-            RaisedButton(
-              onPressed: _btnAnswerQuestion,
-              child: Text('Answer-3'),
-            ),
+            Answers(_btnAnswerQuestion),
+            Answers(_btnAnswerQuestion),
+            Answers(_btnAnswerQuestion),
           ],
         ),
       ),
